@@ -26,39 +26,6 @@ def locate_spill_ink():
     location = pyautogui.locateOnScreen('spillink.png', confidence=0.9, region=(116,32,755,810))
     return location
 
-def locate_exit_ad_screen():
-    if pyautogui.locateOnScreen('adCloseBtn\\ad1.png', confidence=0.6, region=(416,32,455,210)) != None:
-        location = pyautogui.locateOnScreen('adCloseBtn\\ad1.png', confidence=0.6, region=(416,32,455,210))
-    elif pyautogui.locateOnScreen('adCloseBtn\\ad2.png', region=(416,32,455,210)) != None:
-        location = pyautogui.locateOnScreen('adCloseBtn\\ad2.png', region=(416,32,455,210))
-    elif pyautogui.locateOnScreen('adCloseBtn\\ad3.png', confidence=0.7, region=(416,32,455,210)) != None:
-        location = pyautogui.locateOnScreen('adCloseBtn\\ad3.png', confidence=0.7, region=(416,32,455,210))
-    elif pyautogui.locateOnScreen('adCloseBtn\\ad4.png', confidence=0.9, region=(416,32,455,210)) != None:
-        location = pyautogui.locateOnScreen('adCloseBtn\\ad4.png', confidence=0.9, region=(416,32,455,210)) 
-    elif pyautogui.locateOnScreen('adCloseBtn\\ad5.png', confidence=0.6, region=(416,32,455,210)) != None:
-        location = pyautogui.locateOnScreen('adCloseBtn\\ad5.png', confidence=0.6, region=(416,32,455,210)) 
-    elif pyautogui.locateOnScreen('adCloseBtn\\ad6.png', confidence=0.8, region=(416,32,455,210)) != None:
-        location = pyautogui.locateOnScreen('adCloseBtn\\ad6.png', confidence=0.8, region=(416,32,455,210)) 
-    elif pyautogui.locateOnScreen('adCloseBtn\\ad7.png', region=(116,32,755,210)) != None:
-        location = pyautogui.locateOnScreen('adCloseBtn\\ad7.png', region=(116,32,755,210))
-    elif pyautogui.locateOnScreen('adCloseBtn\\ad8.png', confidence=0.8, region=(416,32,455,210)) != None:
-        location = pyautogui.locateOnScreen('adCloseBtn\\ad8.png', confidence=0.8, region=(416,32,455,210))
-    elif pyautogui.locateOnScreen('adCloseBtn\\ad9.png', confidence=0.8, region=(416,32,455,210)) != None:
-        location = pyautogui.locateOnScreen('adCloseBtn\\ad9.png', confidence=0.8, region=(416,32,455,210))
-    elif pyautogui.locateOnScreen('adCloseBtn\\ad10.png', confidence=0.7, region=(416,32,455,210)) != None:
-        location = pyautogui.locateOnScreen('adCloseBtn\\ad10.png', confidence=0.7, region=(416,32,455,210))
-    elif pyautogui.locateOnScreen('adCloseBtn\\ad11.png', confidence=0.7, region=(416,32,455,210)) != None:
-        location = pyautogui.locateOnScreen('adCloseBtn\\ad11.png', confidence=0.7, region=(416,32,455,210))
-    elif pyautogui.locateOnScreen('adCloseBtn\\ad12.png', confidence=0.7, region=(416,32,455,210)) != None:
-        location = pyautogui.locateOnScreen('adCloseBtn\\ad12.png', confidence=0.7, region=(416,32,455,210)) 
-    elif pyautogui.locateOnScreen('adCloseBtn\\ad13.png', confidence=0.8, region=(416,32,455,210)) != None:
-        location = pyautogui.locateOnScreen('adCloseBtn\\ad13.png', confidence=0.9, region=(416,32,455,210)) 
-    elif pyautogui.locateOnScreen('adCloseBtn\\ad14.png', confidence=0.9, region=(416,32,455,210)) != None:
-        location = pyautogui.locateOnScreen('adCloseBtn\\ad14.png', confidence=0.9, region=(416,32,455,210))
-    else:
-        location = None
-    return location
-
 def locate_exit_ad_screen2():
     path = 'C:\\Users\\SEVEN\\Desktop\\Tutorial\\adCloseBtn'
     files = os.listdir(path)
@@ -184,7 +151,7 @@ while keyboard.is_pressed('q') == False:
     except:
         pass
 
-    
+
             
         
         
