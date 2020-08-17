@@ -155,6 +155,7 @@ while (keyboard.is_pressed('q') == False):
 
         else:
             print(f'nope {StuckCounter}/20')
+            sleep(1)
             StuckCounter+=1
             if(StuckCounter>20):
                 stuck_img_counter += 1

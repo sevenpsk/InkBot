@@ -35,7 +35,6 @@ def locateExitAdScreen2():
             quit
     return location
 
-
-
-print(locateExitAdScreen2())
-keyboard.send('Esc')
+for i in (1,2,3,4,5,6,7,8,9):
+    print(i)
+    sleep(2)
