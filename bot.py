@@ -14,37 +14,40 @@ def click(x,y):
     time.sleep(0.05)
     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,0,0)
 
+def save_scope_image():
+    iml = pyautogui.screenshot(region=(screen_left,screen_top,screen_width,screen_height))
+    iml.save(r"C:\Users\SEVEN\Desktop\Project\InkBot\area.png")
+
 def locate_main_screen():
-    location = pyautogui.locateOnScreen('vdoPromo.png',confidence=0.8, region=(116,32,755,810))
+    location = pyautogui.locateOnScreen('vdoPromo.png',confidence=0.8, region=(screen_left,screen_top,screen_width,screen_height))
     return location
 
 def locate_exit_claim_ink():
-    location = pyautogui.locateOnScreen('okbtn.png', confidence=0.8, region=(116,32,755,810))
+    location = pyautogui.locateOnScreen('okbtn.png', confidence=0.8, region=(screen_left,screen_top,screen_width,screen_height))
     return location
 
 def locate_spill_ink():
-    location = pyautogui.locateOnScreen('spillink.png', confidence=0.9, region=(116,32,755,810))
+    location = pyautogui.locateOnScreen('spillink.png', confidence=0.9, region=(screen_left,screen_top,screen_width,screen_height))
     return location
 
 def locate_exit_ad_screen2():
     path = 'C:\\Users\\SEVEN\\Desktop\\Tutorial\\adCloseBtn'
     files = os.listdir(path)
     for f in files:
-        location = pyautogui.locateOnScreen('adCloseBtn\\'+str(f), confidence=0.8, region=(416,32,865,200))
+        location = pyautogui.locateOnScreen('adCloseBtn\\'+str(f), confidence=0.8, region=(screen_left,screen_top,screen_width,screen_height))
         if location != None:
             return location
 
-
 def locate_free_ink():
-    location = pyautogui.locateOnScreen('freeinkbtn.png', confidence=0.8, region=(116,32,755,810))
+    location = pyautogui.locateOnScreen('freeinkbtn.png', confidence=0.8, region=(screen_left,screen_top,screen_width,screen_height))
     return location
 
 def locate_gplay():
-    location = pyautogui.locateOnScreen('gplayheader.PNG', confidence=0.8, region=(116,32,755,810))
+    location = pyautogui.locateOnScreen('gplayheader.PNG', confidence=0.8, region=(screen_left,screen_top,screen_width,screen_height))
     return location
 
 def click_back():
-    backbtn = pyautogui.locateOnScreen('backbtn.png', region=(670,520,200,350))
+    backbtn = pyautogui.locateOnScreen('backbtn.png', region=(screen_left+screen_width,screen_top,screen_width+50,screen_height))
     if backbtn != None:
         click(backbtn.left+10,backbtn.top+10)
     else:
@@ -59,25 +62,37 @@ def capture_stuck_screen(filename):
     iml.save(r"C:\\Users\\SEVEN\Desktop\\Tutorial\\StuckScreen\\"+str(filename)+".png")
     print(f'image no {stuck_img_counter} saved')
 
+def identify_app_screen():
+    scope = pyautogui.locateOnScreen('mainscreen.png', confidence=0.6, region=(0,0,1000,850))
+    if(scope!=None):
+        return scope
+    else:
+        return None
+
 
 StuckCounter = 0
 stuck_img_counter = 0
-while keyboard.is_pressed('q') == False:
+
+#identify app screen
+scope = identify_app_screen()
+if(scope == None):
+    print('App screen not found :(')
+else:
+    print('App screen has been identified')
+    screen_left = scope.left
+    screen_top = scope.top
+    screen_width = scope.width
+    screen_height = scope.height
+
+print(scope)
+
+#while ((keyboard.is_pressed('q') == False)):
+while (keyboard.is_pressed('q') == False):
     try:
-        #locate everything
-        #location = locate_main_screen()
-        #exitAdsScreen = locate_exit_ad_screen2()
-        #exitClaimInk = locate_exit_claim_ink()
-        #claimSpillInk = locate_spill_ink()
-        #freeInkBtn = locate_free_ink()
-        #googleplayscreen = locate_gplay()
-        
-
         #write picture what it see
-        #iml = pyautogui.screenshot(region=(116,32,755,810))
-        #iml.save(r"C:\Users\SEVEN\Desktop\Tutorial\whatISee.png")
+        #save_scope_image()
 
-        #condition
+        #Main program
         if locate_spill_ink() != None:
             claimSpillInk = locate_spill_ink()
             print(f'I can see unclaim Ink at{claimSpillInk}')
