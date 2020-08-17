@@ -31,7 +31,7 @@ def locate_spill_ink():
     return location
 
 def locate_exit_ad_screen2():
-    path = 'C:\\Users\\SEVEN\\Desktop\\Tutorial\\adCloseBtn'
+    path = 'C:\Users\SEVEN\Desktop\Project\InkBot\adCloseBtn'
     files = os.listdir(path)
     for f in files:
         location = pyautogui.locateOnScreen('adCloseBtn\\'+str(f), confidence=0.8, region=(screen_left,screen_top,screen_width,screen_height))
@@ -59,7 +59,7 @@ def click_close_top_right():
 
 def capture_stuck_screen(filename):
     iml = pyautogui.screenshot(region=(116,32,755,810))
-    iml.save(r"C:\\Users\\SEVEN\Desktop\\Tutorial\\StuckScreen\\"+str(filename)+".png")
+    iml.save(r"C:\Users\SEVEN\Desktop\Project\InkBot\StuckScreen\\"+str(filename)+".png")
     print(f'image no {stuck_img_counter} saved')
 
 def identify_app_screen():
@@ -86,7 +86,7 @@ else:
 
 print(scope)
 
-#while ((keyboard.is_pressed('q') == False)):
+
 while (keyboard.is_pressed('q') == False):
     try:
         #write picture what it see
