@@ -115,11 +115,11 @@ while (keyboard.is_pressed('q') == False):
             click_back()
             
         #elif locate_gplay() != None:
-            googleplayscreen = locate_gplay()
-            print('I can see GooglePlay')
-            time.sleep(0.5)
-            click_back()
-            time.sleep(1)
+        #    googleplayscreen = locate_gplay()
+        #    print('I can see GooglePlay')
+        #    time.sleep(0.5)
+        #    click_back()
+        #    time.sleep(1)
         
         elif locate_exit_claim_ink() != None:
             exitClaimInk = locate_exit_claim_ink()
@@ -141,8 +141,8 @@ while (keyboard.is_pressed('q') == False):
         elif locate_free_ink() != None:
             freeInkBtn = locate_free_ink()
             print(f'I can see "Free ink button" at {freeInkBtn}')
-            time.sleep(3)
             click(freeInkBtn.left+50,freeInkBtn.top+20)
+            time.sleep(3)
 
         elif locate_exit_ad_screen2() != None:
             exitAdsScreen = locate_exit_ad_screen2()
@@ -153,29 +153,30 @@ while (keyboard.is_pressed('q') == False):
             StuckCounter=0
         
         #elif datetime.datetime.now().minute == 1:
-            click_back()
-            print('click_back for refresh')
+        #    click_back()
+        #    print('click_back for refresh')
 
         #elif pyautogui.locateOnScreen('hourlyMax.png', confidence=0.8, region=(116,32,755,810)) != None:
-            print(f'hourly max! {StuckCounter}/15')
-            sleep(5)
-            StuckCounter+=1
-            if StuckCounter > 15:
-                print('too long try to refresh')
-                click_back()
-                StuckCounter = 0
+        #    print(f'hourly max! {StuckCounter}/15')
+        #    sleep(5)
+        #    StuckCounter+=1
+        #    if StuckCounter > 15:
+        #        print('too long try to refresh')
+        #        click_back()
+        #        StuckCounter = 0
 
         else:
-            print(f'nope {StuckCounter}/40')
+            print(f'nope {StuckCounter}/30')
+            sleep(1)
             StuckCounter+=1
-            if(StuckCounter>40):
+            if(StuckCounter>25):
                 stuck_img_counter += 1
                 if stuck_img_counter < 20:
                     capture_stuck_screen(stuck_img_counter)
                 click_back()
                 click_close_top_right()
                 StuckCounter=0
-                sleep(5)
+                
     except:
         print(Exception)
         pass
