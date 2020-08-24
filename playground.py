@@ -7,34 +7,15 @@ import win32api, win32con
 import datetime
 import os
 
-def locateMainScreen():
-    location = pyautogui.locateOnScreen('vdoPromo.png', region=(0,30,450,815))
-    return location
-
-def locateExitAdScreen():
-    location = None
-    if pyautogui.locateOnScreen('ad1.png', region=(0,30,450,80)) != None:
-        location = pyautogui.locateOnScreen('ad1.png', region=(0,30,450,80))
-        print(f'found it at {location}')
-    else:
-        print('I cannot find')
-    return location
-
-def locateFreeInk():
-    location = pyautogui.locateOnScreen('freeinkbtn.png', confidence=0.8, region=(116,32,755,810))
-    return location
-
-def locateExitAdScreen2():
-    path = 'C:\\Users\\SEVEN\\Desktop\\Tutorial\\adCloseBtn'
+def locate_exit_ad_screen2():
+    print('execute exit ad screen')
+    path = 'C:\\Users\\SEVEN\\Desktop\\Project\\InkBot\\adCloseBtn\\'
+    print(path)
     files = os.listdir(path)
-    location = None
     for f in files:
-        location = pyautogui.locateOnScreen('adCloseBtn\\'+str(f), confidence=0.8, region=(416,32,455,210))
-        if location != None:
-            return location
-            quit
+        print(f)
+        location = pyautogui.locateOnScreen(path+str(f), confidence=0.8, region=(233,253,152,47))
     return location
 
-for i in (1,2,3,4,5,6,7,8,9):
-    print(i)
-    sleep(2)
+
+loc = locate_exit_ad_screen2()

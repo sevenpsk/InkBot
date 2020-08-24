@@ -6,7 +6,6 @@ import random
 import win32api, win32con
 import datetime
 import os
-import traceback
 
 
 def click(x,y):
@@ -36,11 +35,11 @@ def locate_spill_ink():
 
 def locate_exit_ad_screen2():
     #print('execute exit ad screen')
-    path = 'C:\\Users\\SEVEN\\Desktop\\Project\\InkBot\\adCloseBtn'
+    path = 'C:\\Users\\SEVEN\\Desktop\\Project\\InkBot\\adCloseBtn\\'
     files = os.listdir(path)
     for f in files:
-        location = pyautogui.locateOnScreen('adCloseBtn\\'+str(f), confidence=0.8, region=(screen_left,screen_top,screen_width,screen_height))
-        return location
+        location = pyautogui.locateOnScreen(path+str(f), confidence=0.8, region=(screen_left,screen_top,screen_width,screen_height))
+    return location
 
 def locate_free_ink():
     #print('execute locate free ink')
@@ -166,10 +165,10 @@ while (keyboard.is_pressed('q') == False):
         #        StuckCounter = 0
 
         else:
-            print(f'nope {StuckCounter}/30')
+            print(f'nope {StuckCounter}/20')
             sleep(1)
             StuckCounter+=1
-            if(StuckCounter>25):
+            if(StuckCounter>20):
                 stuck_img_counter += 1
                 if stuck_img_counter < 20:
                     capture_stuck_screen(stuck_img_counter)
