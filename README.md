@@ -9,4 +9,4 @@ please make sure you install all of the require libaries :)
 
 email/contact me for more info :)
 
-Or I'll improve it as much as I can before I call it a program 
+Or I'll improve it as much as I can before I call it a day
